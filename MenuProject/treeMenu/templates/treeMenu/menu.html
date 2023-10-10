@@ -1,0 +1,8 @@
+<ul class="menu">
+    {% for item in menu_items %}
+        {% if not item.parent %}
+            <li><a href="?item={{ item.pk }}"> {{ item }} </a></li>
+            {% include 'treeMenu/children.html' with parent_pk=item.pk %}
+        {% endif %}
+    {% endfor %}
+</ul>

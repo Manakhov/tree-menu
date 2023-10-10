@@ -15,6 +15,9 @@ class Item(models.Model):
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
 
+    class Meta:
+        ordering = ['parent__pk']
+
     def __str__(self):
         return self.name
 

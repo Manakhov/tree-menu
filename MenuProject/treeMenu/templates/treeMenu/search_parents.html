@@ -1,0 +1,6 @@
+{% if item.parent %}
+{{ item.parent.pk }}
+{% if item.parent.parent %}
+_{% include 'treeMenu/search_parents.html' with item=item.parent %}
+{% endif %}
+{% endif %}
